@@ -1,8 +1,8 @@
-from key_lamp import KeyBoard_Lamp as kl
-from plug_board import PlugBoard as pb
-from rotors import Rotor as rt
-from reflector import Reflector as rf
-from encipher import Encipher
+from inner_parts.key_lamp import KeyBoard_Lamp as kl
+from inner_parts.plug_board import PlugBoard as pb
+from inner_parts.rotors import Rotor as rt
+from inner_parts.reflector import Reflector as rf
+from inner_parts.encipher import Encipher
 
 
 
