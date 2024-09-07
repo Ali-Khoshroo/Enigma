@@ -5,18 +5,15 @@ class PlugBoard():
 
         self.right = string.ascii_uppercase
         self.left = string.ascii_uppercase
-        # should do the error handling 
-        # no need for user interface
-        try:
-            for sl in switched_letters:
-                item_1 = sl[0]
-                item_2 = sl[1]
-                position_item_1 = self.right.find(item_1)
-                position_item_2 = self.right.find(item_2)
-                self.left = self.left[:position_item_1] + item_2 + self.left[position_item_1+1:] 
-                self.left = self.left[:position_item_2] + item_1 + self.left[position_item_2+1:]
-        except :
-            raise ValueError
+        
+        for sl in switched_letters:
+            item_1 = sl[0]
+            item_2 = sl[1]
+            position_item_1 = self.right.find(item_1)
+            position_item_2 = self.right.find(item_2)
+            self.left = self.left[:position_item_1] + item_2 + self.left[position_item_1+1:] 
+            self.left = self.left[:position_item_2] + item_1 + self.left[position_item_2+1:]
+
 
     def forward(self,position):
         letter = self.right[position]
@@ -29,10 +26,3 @@ class PlugBoard():
         position = self.right.find(letter)
         return position
     
-
-
-
-    
-
-
-

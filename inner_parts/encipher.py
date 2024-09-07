@@ -8,8 +8,6 @@ class Encipher():
         self.Rotor_2 = Rotor_2
         self.Rotor_3 = Rotor_3
         self.Reflector = Reflector
-        self.counter_1 = 0
-        self.counter_2 = 0
         
 
     def set_keys(self, key):
@@ -20,9 +18,7 @@ class Encipher():
 
     def encipher_command(self,letter):
         
-        
         if self.Rotor_2.left[0] == self.Rotor_2.notch :
-
             self.Rotor_1.rotation()
             self.Rotor_2.rotation()
             self.Rotor_3.rotation()
