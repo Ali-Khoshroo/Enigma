@@ -3,15 +3,16 @@ from inner_parts.plug_board import PlugBoard as pb
 from inner_parts.rotors import Rotor as rt
 from inner_parts.reflector import Reflector as rf
 from inner_parts.encipher import Encipher
+from UI import *
 
 
 
 # KeyBoard 
-test_kb = kl
+key_board = kl
 
 
 # PlugBoard
-test_pb = pb(["AB","CD","EF"])
+plug_board = pb(get_plug_board())
 
 
 # Rotors Wiring
@@ -20,23 +21,26 @@ II = rt("AJDKSIRUXBLHWTMCQGZNPYFVOE","E")
 III = rt("BDFHJLCPRTXVZNYEIWGAKMUSQO","V")
 IV = rt("ESOVPZJAYQUIRHXLNFTGKDCMWB","J")
 V = rt("VZBRGITYUPSDNHLXAWMJQOFECK","Z")
+all_rotors = [I , II , III , IV , V] 
 
 
 # Reflector Wiring
 reflector_A = rf("EJMZALYXVBWFCRQUONTSPIKHGD")
 reflector_B = rf("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 reflector_C = rf("FVPJIAOYEDRZXWGCTKUQSBNMHL")
+all_reflectors = [reflector_A, reflector_B, reflector_C]
 
 
 # Defining the Enigma mashine
-test = Encipher(test_kb,test_pb,I,II,III,reflector_A)
+chosen_rotors = get_rotors()
+machine = Encipher(key_board,plug_board,all_rotors[chosen_rotors[0]],all_rotors[chosen_rotors[0]],all_rotors[chosen_rotors[0]],all_reflectors[get_reflector()])
 
 # Seting the keys
-test.set_keys("WTF")
+machine.set_keys(get_message_key())
 
 
 # Encipher a letter
-message = "hello 23 world "
+message = get_message()
 encrypted_text = ""
 for item in message :
     if item == " " :
@@ -44,31 +48,10 @@ for item in message :
     elif item.isnumeric():
         encrypted_text = encrypted_text + item
     else : 
-        encrypted_text = encrypted_text + (test.encipher_command(item.upper()))
+        encrypted_text = encrypted_text + (machine.encipher_command(item.upper()))
 
 
-print(f"Original Message --> {message}\nEncrypted --> {encrypted_text}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# GUI part
-
-
-
-
+print(f"Original Message --> {message}\nEncrypted Message --> {encrypted_text}\n")
 
 
 
