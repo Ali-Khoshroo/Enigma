@@ -8,6 +8,7 @@ The number of permutations of settings available to the encoders made the Enigma
 Combining three rotors from a set of five, each of the 3 rotor settings with 26 positions, and the plugboard with ten pairs of letters connected, the military Enigma has `158,962,555,217,826,360,000` different settings ( *nearly 159 quintillion or about 67 bits* ).
 
 ## How my code works
+### First Run `Machine.py`    
 The machine has a number of settings. You give the settings to the machine and then your message.   
 The machine encrypts the message and if you enter the encrypted message ,decrypts it ( The setting should be the exact same to decrypt the message )   
 ### Settings that you can use :   
